@@ -1,4 +1,4 @@
-function sliderInit(slides, prev, next, slidesWindow, slidesField, marginLeft, slidesWindowWidth, offset, slidesToShow) {
+function sliderInit(slides, prev, next, slidesWindow, slidesField, marginLeft, slidesWindowWidth, offset, slidesToShow, slidesToScroll = 1) {
     offset = 0;
     slidesField.style.width = 100 * slides.length + '%';
 
@@ -15,13 +15,14 @@ function sliderInit(slides, prev, next, slidesWindow, slidesField, marginLeft, s
             if (offset >= (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) * ((Math.round(slides.length) / slidesToShow) - 1))) {
                 offset = 0;
             } else {
-                offset += +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) + marginLeft;
+                offset += ((+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) - (marginLeft * (slidesToShow - 1))) / slidesToShow) * slidesToScroll + (marginLeft * slidesToScroll);
             }
+            console.log(offset);
         } else {
             if (offset >= (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) * ((Math.round(slides.length) / slidesToShow) - 1))) {
                 offset = 0;
             } else {
-                offset += +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2);
+                offset += +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) / slidesToShow * slidesToScroll;
             }
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
@@ -33,13 +34,13 @@ function sliderInit(slides, prev, next, slidesWindow, slidesField, marginLeft, s
             if (offset == 0) {
                 offset = (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) + marginLeft) * ((Math.round(slides.length) / slidesToShow) - 1);
             } else {
-                offset -= +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) + marginLeft;
+                offset -= ((+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) - (marginLeft * (slidesToShow - 1))) / (slidesToShow)) * slidesToScroll + (marginLeft * slidesToScroll);
             }
         } else {
             if (offset == 0) {
                 offset = +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) * ((Math.round(slides.length) / slidesToShow) - 1);
             } else {
-                offset -= +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2);
+                offset -= +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) / slidesToShow * slidesToScroll;
             }
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
