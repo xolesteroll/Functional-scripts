@@ -19,7 +19,7 @@ You need to declare as variables slider elements below:
 // HTML scheme:
 
 /*
-<div class="slider">
+//<div class="slider">
     <img src="" alt="" class="slider__arrow-prev">
     <div class="slider__wrapper">
         <div class="slider__inner">
