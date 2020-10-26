@@ -1,5 +1,4 @@
 
-
     // Slider Init Function
     function sliderInit(slider, slidesToShow = 1, slidesToScroll = 1) {
         const slides = slider.querySelectorAll('[data-slider-slide]'),
