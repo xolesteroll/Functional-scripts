@@ -12,6 +12,8 @@
         let offset = 0;
 
         slidesField.style.width = ((slidesWindowWidth - (marginLeft * (slidesToShow - 1))) * (slides.length / slidesToShow)) + (marginLeft * (slides.length - 1)) + 'px';
+        slidesField.style.display = 'flex';
+        slidesWindow.style.overflow = 'hidden';
 
         
         let slidesFieldWidth = parseInt(window.getComputedStyle(slidesField).width);
