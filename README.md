@@ -24,10 +24,11 @@ This is a function for slider initiation.
 
 NOTE: you can add classes as you want, but data- attributes should be exatly the same as in example.
 ```
+3. If you need a margin between slides, use item + item {} selector and margin-left for all the slides besides the first.
 
-1 To initiate a slider all you need to do is to declare a variable with your parent slider block.
+2. To initiate a slider all you need to do is to declare a variable with your parent slider block.
 Example:
 const slider = document.querySelector('.slider);
 
-2 Call a function sliderInit(slider, slidesToShow, slidesToScroll);
+3. Call a function sliderInit(slider, slidesToShow, slidesToScroll);
 P.S. slidesToShow and slidesToScroll are equal 1 by default;
