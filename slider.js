@@ -4,25 +4,25 @@ function sliderInit(slides, prev, next, slidesWindow, slidesField, marginLeft, s
 
     slides.forEach(slide => {
         if (marginLeft != 0) {
-            slide.style.width = (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) - (marginLeft * (slidesToShow - 1))) / slidesToShow  + 'px';
+            slide.style.width = (slidesWindowWidth - (marginLeft * (slidesToShow - 1))) / slidesToShow  + 'px';
         } else {
-            slide.style.width = +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) / slidesToShow + 'px';
+            slide.style.width = slidesWindowWidth / slidesToShow + 'px';
         }
     });
 
     next.addEventListener('click', () => {
         if (marginLeft != 0) {
-            if (offset >= (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) * ((Math.round(slides.length) / slidesToShow) - 1))) {
+            if (offset >= (slidesWindowWidth * ((Math.round(slides.length) / slidesToShow) - 1))) {
                 offset = 0;
             } else {
-                offset += ((+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) - (marginLeft * (slidesToShow - 1))) / slidesToShow) * slidesToScroll + (marginLeft * slidesToScroll);
+                offset += ((slidesWindowWidth - (marginLeft * (slidesToShow - 1))) / slidesToShow) * slidesToScroll + (marginLeft * slidesToScroll);
             }
             console.log(offset);
         } else {
-            if (offset >= (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) * ((Math.round(slides.length) / slidesToShow) - 1))) {
+            if (offset >= (slidesWindowWidth * ((Math.round(slides.length) / slidesToShow) - 1))) {
                 offset = 0;
             } else {
-                offset += +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) / slidesToShow * slidesToScroll;
+                offset += slidesWindowWidth / slidesToShow * slidesToScroll;
             }
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
@@ -32,15 +32,15 @@ function sliderInit(slides, prev, next, slidesWindow, slidesField, marginLeft, s
     prev.addEventListener('click', () => {
         if (marginLeft != 0) {
             if (offset == 0) {
-                offset = (+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) + marginLeft) * ((Math.round(slides.length) / slidesToShow) - 1);
+                offset = (slidesWindowWidth * ((Math.round(slides.length) / slidesToShow) - 1));
             } else {
-                offset -= ((+slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) - (marginLeft * (slidesToShow - 1))) / (slidesToShow)) * slidesToScroll + (marginLeft * slidesToScroll);
+                offset -= ((slidesWindowWidth - (marginLeft * (slidesToShow - 1))) / (slidesToShow)) * slidesToScroll + (marginLeft * slidesToScroll);
             }
         } else {
             if (offset == 0) {
-                offset = +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) * ((Math.round(slides.length) / slidesToShow) - 1);
+                offset = slidesWindowWidth * ((Math.round(slides.length) / slidesToShow) - 1);
             } else {
-                offset -= +slidesWindowWidth.slice(0, slidesWindowWidth.length - 2) / slidesToShow * slidesToScroll;
+                offset -= slidesWindowWidth / slidesToShow * slidesToScroll;
             }
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
