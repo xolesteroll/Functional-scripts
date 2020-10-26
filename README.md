@@ -18,6 +18,7 @@ You need to declare as variables slider elements below:
 
 // HTML scheme:
 
+/*
 <div class="slider">
     <img src="" alt="" class="slider__arrow-prev">
     <div class="slider__wrapper">
@@ -29,6 +30,7 @@ You need to declare as variables slider elements below:
     </div>
     <img src="" alt="" class="slider__arrow-next">
 </div>
+*/
 
 // CSS:
 
