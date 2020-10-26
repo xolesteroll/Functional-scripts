@@ -17,9 +17,8 @@ You need to declare as variables slider elements below:
 9. Profit.
 
 // HTML scheme:
-
-/*
-//<div class="slider">
+```html
+<div class="slider">
     <img src="" alt="" class="slider__arrow-prev">
     <div class="slider__wrapper">
         <div class="slider__inner">
@@ -30,7 +29,7 @@ You need to declare as variables slider elements below:
     </div>
     <img src="" alt="" class="slider__arrow-next">
 </div>
-*/
+```
 
 // CSS:
 
