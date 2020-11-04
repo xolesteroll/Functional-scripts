@@ -7,8 +7,7 @@ This is a repository for my functional scripts, that you can use in your work.
 This is a function for slider initiation. 
 
 
-
-// HTML scheme:
+ HTML scheme:
 ```html
 <div class="slider" data-slider>
     <img src="" alt="" class="slider__arrow-prev" data-slider-prev>
